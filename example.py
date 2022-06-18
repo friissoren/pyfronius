@@ -18,25 +18,24 @@ async def main(loop, host):
         # which endpoints are acessed
         # NOTE: configuring the wrong devices may cause Exceptions to be thrown
         res = await fronius.fetch(
-            active_device_info=True,
-            inverter_info=True,
-            logger_info=True,
-            power_flow=True,
-            system_meter=True,
+            active_device_info=False,
+            inverter_info=False,
+            logger_info=False,
+            power_flow=False,
+            system_meter=False,
             system_inverter=True,
-            system_ohmpilot=True,
-            system_storage=True,
-            device_meter=["0"],
+            system_ohmpilot=False,
+            system_storage=False,
+            device_meter=[],
             # storage is not necessarily supported by every fronius device
-            device_storage=["0"],
-            device_inverter=["1"],
-            loop=loop,
+            device_storage=[],
+            device_inverter=[],
         )
         for r in res:
             print(json.dumps(r, indent=4))
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
+    #logging.basicConfig(level=logging.DEBUG)
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main(loop, sys.argv[1]))
