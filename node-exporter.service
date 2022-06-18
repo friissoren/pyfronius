@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus exporter for machine metrics
+
+[Service]
+Restart=always
+ExecStart=/home/pi/node_exporter-1.3.1.linux-armv7/node_exporter
+ExecReload=/bin/kill -HUP $MAINPID
+TimeoutStopSec=20s
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target

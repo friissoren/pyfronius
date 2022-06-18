@@ -1,0 +1,13 @@
+[Unit]
+Description=Collect data from inverter
+
+[Service]
+Restart=always
+ExecStart=python3 /home/pi/SW/pyfronius/collect_data.py 192.168.100.17
+ExecReload=/bin/kill -HUP $MAINPID
+TimeoutStopSec=20s
+SendSIGKILL=no
+LimitNOFILE=8192
+
+[Install]
+WantedBy=multi-user.target

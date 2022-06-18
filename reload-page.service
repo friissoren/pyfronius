@@ -1,0 +1,9 @@
+[Unit]
+Description=Trigger reload of web page to collect data
+
+[Service]
+Restart=always
+ExecStart=/home/pi/SW/pyfronius/reload-page.sh
+
+[Install]
+WantedBy=multi-user.target
