@@ -3,7 +3,7 @@ Description=Monitoring system and time series database
 
 [Service]
 Restart=always
-ExecStart=/home/pi/prometheus-2.36.1.linux-armv7/prometheus --config.file=/home/pi/prometheus-2.36.1.linux-armv7/prometheus.yml --storage.tsdb.path=/home/pi/prometheus-2.36.1.linux-armv7/data
+ExecStart=/home/pi/prometheus-2.36.1.linux-armv7/prometheus --config.file=/home/pi/prometheus-2.36.1.linux-armv7/prometheus.yml --storage.tsdb.path=/home/pi/prometheus-2.36.1.linux-armv7/data --storage.tsdb.retention.time=9999d
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutStopSec=20s
 SendSIGKILL=no
