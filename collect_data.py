@@ -46,11 +46,17 @@ class ServerHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"Hello World!")
 
-        data = res[0]
-        ENERGY_DAY.set(data["energy_day"]["value"])
-        ENERGY_TOTAL.set(data["energy_total"]["value"])
-        ENERGY_YEAR.set(data["energy_year"]["value"])
-        POWER_AC.set(data["power_ac"]["value"])
+        if res and res[0]:
+            data = res[0]
+            ENERGY_DAY.set(data["energy_day"]["value"])
+            ENERGY_TOTAL.set(data["energy_total"]["value"])
+            ENERGY_YEAR.set(data["energy_year"]["value"])
+            POWER_AC.set(data["power_ac"]["value"])
+        else:
+            ENERGY_DAY.set(0)
+            ENERGY_TOTAL.set(0)
+            ENERGY_YEAR.set(0)
+            POWER_AC.set(0)
 
 
 if __name__ == "__main__":
