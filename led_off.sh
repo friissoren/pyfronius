@@ -1,2 +1,2 @@
-sudo sh -c 'echo 0 > /sys/class/leds/led0/brightness'
-sudo sh -c 'echo 0 > /sys/class/leds/led1/brightness'
+sudo sh -c 'echo 0 > /sys/class/leds/ACT/brightness'
+sudo sh -c 'echo 0 > /sys/class/leds/PWR/brightness'

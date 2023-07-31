@@ -7,7 +7,8 @@ ExecStart=/home/pi/prometheus-2.36.1.linux-armv7/prometheus --config.file=/home/
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutStopSec=20s
 SendSIGKILL=no
-LimitNOFILE=8192
+LimitNOFILE=999999
+#LimitNOFILE=8192
 
 [Install]
 WantedBy=multi-user.target
