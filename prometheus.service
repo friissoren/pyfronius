@@ -10,8 +10,8 @@ TimeoutStopSec=20s
 SendSIGKILL=no
 LimitNOFILE=999999
 #LimitNOFILE=8192
-StartLimitIntervalSec=1
-StartLimitBurst=6
+StartLimitIntervalSec=10
+StartLimitBurst=200
 
 [Install]
 WantedBy=multi-user.target
